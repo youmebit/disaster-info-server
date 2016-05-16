@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="../../system/config.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../system/set.js" charset="UTF-8"></script>
+<script>
+  var set = null;
+
+  window.onload = function() {
+    set = new Set();
+  }
+
+  function check() {
+    set.checkForm();
+  }
+</script>
+<style type="text/css">
+  /*
+  html5doctor.com Reset Stylesheet
+  v1.4
+  2009-07-27
+  Author: Richard Clark - http://richclarkdesign.com
+  */
+
+  html, body, div, span, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  abbr, address, cite, code,
+  del, dfn, em, img, ins, kbd, q, samp,
+  small, strong, sub, sup, var,
+  b, i,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, dialog, figure, footer, header,
+  hgroup, menu, nav, section,
+  time, mark, audio, video {
+  	margin:0;
+  	padding:0;
+  	border:0;
+  	outline:0;
+  	font-size:100%;
+  	vertical-align:baseline;
+  	background:transparent;
+  }
+  body {
+  	line-height:1;
+  }
+
+  article, aside, dialog, figure, footer, header,
+  hgroup, nav, section {
+  	display:block;
+  }
+
+  nav ul {
+  	list-style:none;
+  }
+
+  blockquote, q {
+  	quotes:none;
+  }
+
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+  	content:'';
+  	content:none;
+  }
+
+  a {
+  	margin:0;
+  	padding:0;
+  	border:0;
+  	font-size:100%;
+  	vertical-align:baseline;
+  	background:transparent;
+  }
+
+  ins {
+  	background-color:#ff9;
+  	color:#000;
+  	text-decoration:none;
+  }
+
+  mark {
+  	background-color:#ff9;
+  	color:#000;
+  	font-style:italic;
+  	font-weight:bold;
+  }
+
+  del {
+  	text-decoration: line-through;
+  }
+
+  abbr[title], dfn[title] {
+  	border-bottom:1px dotted #000;
+  	cursor:help;
+  }
+
+  table {
+  	border-collapse:collapse;
+  	border-spacing:0;
+  }
+
+  hr {
+      display:block;
+      height:1px;
+      border:0;
+      border-top:1px solid #cccccc;
+      margin:1em 0;
+      padding:0;
+  }
+
+  input, select {
+  	vertical-align:middle;
+  }
+
+  ul {
+      list-style: none;
+  }
+
+  /* This is a CSS file */
+
+  body {
+      background-color: #f2f2f2;
+  }
+  header {
+  	padding: 15px 0;
+      font-size: 1.2em;
+      border-bottom: 2px solid #444;
+      background-color: #fdd37d;
+      text-align: center;
+  }
+  h1 {
+  	font-family: 'Noto500', sans-serif;
+  }
+  #contents {
+      font-family: 'Noto400', sans-serif;
+      width: 90%;
+      margin: 0 auto;
+      font-size: 1em;
+  }
+  .icon {
+  	text-align: center;
+      padding-top: 10px;
+      font-size: 3.4em;
+      font-family: 'Noto700';
+      padding-bottom: 15px;
+  }
+  .font-l {
+  	text-align: center;
+  }
+  form {
+      padding-top: 15px;
+  }
+  .unit {
+  	padding-bottom: 20px;
+  }
+  .unit p {
+  	padding-bottom: 5px;
+  }
+  input {
+      width: 100%;
+      padding: 8px 0px 8px 2px;
+      border: solid 1px #808080;
+      border-radius: 3px;
+  }
+  .btn {
+  	display: block;
+  	width: 60%;
+      background-color: #36a284;
+      border-radius: 3px;
+      font-family: 'Noto500', sans-serif;
+      color: #ffffff;
+      border: 1px solid #4d4d4d;
+      box-shadow: 0px 3px 8px -1px #444;
+      text-align: center;
+      padding: 4% 0;
+  	margin: 10px auto;
+  }
+</style>
+<title>パスワード変更</title>
+</head>
+
+<body>
+<div id="container">
+  <header>
+    <h1>パスワード変更</h1>
+  </header>
+
+  <noscript><p>ご利用中のブラウザでは、JavaScriptが無効になっています。サイトをご利用の場合はブラウザ設定でJavaScriptを有効にしてご利用ください。</p></noscript>
+    <div id="contents">
+      <form name="onetimeForm">
+        <div class="unit">
+              <p>仮パスワードを入力してください。</p>
+          <input type="text" name="temporaryPassword">
+        </div>
+        <div class="unit">
+              <p>変更後のパスワードを入力してください。</p>
+          <input type="password" name="newPassword">
+        </div>
+        <div class="unit">
+              <p>確認の為もう一度入力してください。</p>
+          <input type="password" name="checkNewPassword">
+        </div>
+      </form>
+
+      <div class="align-r">
+         <a class="btn font-l" onclick="check()">変更する</a>
+      </div>
+  </div>
+</div>
+</body>
+</html>
